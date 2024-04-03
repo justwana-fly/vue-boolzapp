@@ -1,3 +1,4 @@
+/* generali */
 * {
     padding: 0;
     margin: 0;
@@ -16,13 +17,55 @@ body {
     margin: 0 auto;
     padding: 20px;
 }
+img {
+    border-radius: 50%;
+    width: 50px;
+}
 
+a p:hover, i:hover {
+    transform: scale(1.2);
+}
+
+
+/* parte sinistra dell`app */
 .left-section {
    float: left;
    width: 30%;
    height: 100%;
    border: 1px solid red;
 }
+.your-avatar {
+    background-color: #EAEAEA;
+}
+
+.notifiche {
+    background-color: #8EDAFC;
+}
+
+.notifiche-testo {
+    color: gray;
+    font-size: 13px;
+}
+
+.notifiche-circle {
+    max-width: 50px; 
+    max-height: 50px; 
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px; 
+}
+
+
+.notifiche-circle i {
+    font-size: 21px;
+}
+
+
+
+/* parte destra dell`app*/
 .right-section {
    float: left;
    width: 70%;
@@ -31,27 +74,12 @@ body {
    background-image: url(img/mine.jpg);
 }
 
-.your-avatar {
-    background-color: #EAEAEA;
-}
-
 .chat-avatar {
     background-color: #EAEAEA;
 
 }
 
-img {
-    border-radius: 50%;
-    width: 50px;
-}
-
-a i:hover {
-
-    transform: scale(1.2);
-}
-
 .message {
     width: 100%;
     background-color:#F3EEEA;
-    height: 50px;
 }
