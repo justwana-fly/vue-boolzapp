@@ -21,68 +21,85 @@
 </head>
 
 <body>
-    <div id="app">
-        <div class="container">
-            <div class="left-section">
-                <!-- parte sinistra -->
-                <div class="your-avatar d-flex justify-content-between align-items-center p-1 ">
-                    <div class="d-flex align-items-center">
-                        <img src="img/avatar_io.jpg" alt="">
-                        <p class="m-lg-2  m-0 ">Sofia</p>
-                    </div>
 
-                    <div class="m-3">
-                        <a href="#"><i class="fa-solid fa-circle-notch m-1 " style="color: #B8BABC;"></i></a>
-                        <a href="#"><i class="fa-solid fa-message m-1 " style="color: #B8BABC;"></i></a>
-                        <a href="#"><i class="fa-solid fa-ellipsis-vertical m-1 " style="color: #B8BABC;"></i></a>
-                    </div>
+    <div class="container">
+        <div class="left-section">
+            <!-- parte sinistra -->
+            <div class="your-avatar d-flex justify-content-between align-items-center p-1 ">
+                <div class="d-flex align-items-center">
+                    <img src="img/avatar_io.jpg" alt="">
+                    <p class="m-lg-2  m-0 ">Sofia</p>
                 </div>
-                <!-- notifiche -->
-                <div class="notifiche d-flex align-items-center p-3">
-                    <div class="notifiche-circle">
-                        <i class="aab fa-regular fa-bell-slash m-2" style="color: #74C0FC;"></i>
-                    </div>
-                    <div>
-                        <p class="m-0 ">Ricevi notifiche di nuovi messaggi</p>
-                        <a href="#">
-                            <p class="m-0 notifiche-testo">Attiva notifiche desktop</p>
-                        </a>
-                    </div>
+
+                <div class="m-3">
+                    <a href="#"><i class="fa-solid fa-circle-notch m-1 " style="color: #B8BABC;"></i></a>
+                    <a href="#"><i class="fa-solid fa-message m-1 " style="color: #B8BABC;"></i></a>
+                    <a href="#"><i class="fa-solid fa-ellipsis-vertical m-1 " style="color: #B8BABC;"></i></a>
                 </div>
-                <!-- input di ricerca utenti -->
-                <div class="search d-flex mt-2 ">
-                    <button class="w-25 p-1 search-button" type="button">
-                        <i class="fa-solid fa-magnifying-glass m-1 " style="color: #B8BABC;"></i>
-                    </button>
-                    <input class="w-75 p-1 search-input" type="text" placeholder="Cerca o inizia una nuova chat">
+            </div>
+            <!-- notifiche -->
+            <div class="notifiche d-flex align-items-center p-3">
+                <div class="notifiche-circle">
+                    <i class="aab fa-regular fa-bell-slash m-2" style="color: #74C0FC;"></i>
+                </div>
+                <div>
+                    <p class="m-0 ">Ricevi notifiche di nuovi messaggi</p>
+                    <a href="#">
+                        <p class="m-0 notifiche-testo">Attiva notifiche desktop</p>
+                    </a>
+                </div>
+            </div>
+            <!-- input di ricerca utenti -->
+            <div class="search d-flex mt-2 ">
+                <button class="w-25 p-1 search-button" type="button">
+                    <i class="fa-solid fa-magnifying-glass m-1 " style="color: #B8BABC;"></i>
+                </button>
+                <input class="w-75 p-1 search-input" type="text" placeholder="Cerca o inizia una nuova chat">
+            </div>
+
+            <!-- user a cui puoi scrivere -->
+            <div id="app">
+                <!-- Lista dei contatti -->
+                <ul>
+                    <!-- Utilizziamo v-for per iterare attraverso l'array dei contatti -->
+                    <li v-for="contact in contacts" :key="contact.name">
+                        <!-- Immagine avatar del contatto -->
+                        <img :src="contact.avatar" :alt="contact.name" width="50">
+                        <!-- Nome del contatto -->
+                        <span>{{ contact.name }}</span>
+                    </li>
+                </ul>
+            </div>
+
+
+
+        </div>
+
+        <!-- parte destra -->
+        <div class="right-section d-flex flex-column">
+            <!-- use con cui stai parlando -->
+            <div class="chat-avatar d-flex justify-content-between align-items-center p-1">
+                <img src="img/avatar_1.jpg" alt="">
+                <div class="m-3">
+                    <a href="#"><i class="fa-solid fa-magnifying-glass m-1 " style="color: #B8BABC;"></i></a>
+                    <a href="#"><i class="fa-solid fa-paperclip m-1 " style="color: #B8BABC;"></i></a>
+                    <a href="#"><i class="fa-solid fa-ellipsis-vertical m-1 " style="color: #B8BABC;"></i></a>
                 </div>
             </div>
 
-            <!-- parte destra -->
-            <div class="right-section d-flex flex-column">
-                <!-- use con cui stai parlando -->
-                <div class="chat-avatar d-flex justify-content-between align-items-center p-1">
-                    <img src="img/avatar_1.jpg" alt="">
-                    <div class="m-3">
-                        <a href="#"><i class="fa-solid fa-magnifying-glass m-1 " style="color: #B8BABC;"></i></a>
-                        <a href="#"><i class="fa-solid fa-paperclip m-1 " style="color: #B8BABC;"></i></a>
-                        <a href="#"><i class="fa-solid fa-ellipsis-vertical m-1 " style="color: #B8BABC;"></i></a>
-                    </div>
-                </div>
+            <!-- parte destra sotto input di messaggi -->
+            <div class="message d-flex align-items-end mt-auto p-2 align-items-center">
+                <a href="#"><i class="fa-regular fa-face-smile" style="color: #B8BABC;"></i></a>
 
-                <!-- parte destra sotto input di messaggi -->
-                <div class="message d-flex align-items-end mt-auto p-2 align-items-center">
-                    <a href="#"><i class="fa-regular fa-face-smile" style="color: #B8BABC;"></i></a>
-
-                    <input class="w-75 mx-auto p-2 rounded border-0 " type="text" placeholder="Scrivi un messaggio">
-                    <a href="#"><i class="fa-solid fa-microphone" style="color: gray;"></i></a>
-
-                </div>
+                <input class="w-75 mx-auto p-2 rounded border-0 " type="text" placeholder="Scrivi un messaggio">
+                <a href="#"><i class="fa-solid fa-microphone" style="color: gray;"></i></a>
 
             </div>
+
         </div>
     </div>
     </div>
+
 </body>
 
 </html>
