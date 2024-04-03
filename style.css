@@ -33,6 +33,7 @@ a p:hover, i:hover {
    width: 30%;
    height: 100%;
    border: 1px solid red;
+   background-color: white;
 }
 .your-avatar {
     background-color: #EAEAEA;
@@ -56,6 +57,11 @@ a p:hover, i:hover {
     align-items: center;
     justify-content: center;
     margin-right: 10px; 
+}
+
+.search-button,
+.search-input{
+    border: 1px solid lightgray;
 }
 
 
