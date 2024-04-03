@@ -13,7 +13,6 @@ body {
 
 .container {
     height: 100vh;
-    width: 90%;
     margin: 0 auto;
     padding: 20px;
 }
@@ -29,6 +28,7 @@ body {
    width: 70%;
    height: 100%;
    border: 1px solid red;
+   background-image: url(img/mine.jpg);
 }
 
 .your-avatar {
@@ -48,4 +48,10 @@ img {
 a i:hover {
 
     transform: scale(1.2);
+}
+
+.message {
+    width: 100%;
+    background-color:#F3EEEA;
+    height: 50px;
 }
