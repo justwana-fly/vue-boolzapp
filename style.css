@@ -1,0 +1,51 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(180deg, #009688 13%, #d8dbd5 13%) ;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    height: 100vh;
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.left-section {
+   float: left;
+   width: 30%;
+   height: 100%;
+   border: 1px solid red;
+}
+.right-section {
+   float: left;
+   width: 70%;
+   height: 100%;
+   border: 1px solid red;
+}
+
+.your-avatar {
+    background-color: #EAEAEA;
+}
+
+.chat-avatar {
+    background-color: #EAEAEA;
+
+}
+
+img {
+    border-radius: 50%;
+    width: 50px;
+}
+
+a i:hover {
+
+    transform: scale(1.2);
+}
