@@ -1,87 +1,116 @@
-/* generali */
+/* Impostazioni generali */
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
-.nb-debug {
-    border: 1px solid red;
-}
-a p:hover, i:hover {
+
+/* Stili per gli elementi */
+a p:hover,
+i:hover {
     transform: scale(1.2);
 }
+
+/* Immagini */
 img {
     width: 50px;
 }
 
-
+/* Stili per l'applicazione */
 #app {
     height: 100vh;
     width: 100%;
-    background: linear-gradient(180deg, #009688 20%, #d8dbd5 20%) ;
+    background: linear-gradient(180deg, #009688 20%, #d8dbd5 20%);
     padding: 30px 0;
 }
-#contactList{
+
+/* Lista dei contatti */
+#contactList {
     width: 40%;
 }
-.notification{
+
+/* Notifiche */
+.notification {
     height: 70px;
     background-color: #8EDAFC;
 }
+
+/* Testo delle notifiche */
 .notifiche-testo {
     color: gray;
     font-size: 13px;
 }
+
+/* Cerchio delle notifiche */
 .notifiche-circle {
-    max-width: 50px; 
-    max-height: 50px; 
+    max-width: 50px;
+    max-height: 50px;
     border-radius: 50%;
     background-color: white;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 10px; 
+    margin-right: 10px;
 }
+
+/* Barra di ricerca */
 .search-button,
-.search-input{
+.search-input {
     border: 1px solid lightgray;
 }
 
+/* Icona della lente di ingrandimento */
+.search-button i {
+    color: #B8BABC;
+}
 
-.notifiche-circle i {
-    font-size: 21px;
+/* Input della barra di ricerca */
+.search-input {
+    width: 75%;
 }
-.searchbar{
-    height: 50px;
-}
-.contacts{
+
+/* Lista dei contatti */
+.contacts {
     height: calc(100% - 190px);
     overflow-y: auto;
 }
-.contact{
+
+/* Contatto singolo */
+.contact {
     padding: 10px;
     border-bottom: 1px solid gray;
 }
-.contact .avatar{
+
+/* Immagine profilo del contatto */
+.contact .avatar {
     width: 50px;
 }
-.active{
+
+/* Contatto attivo */
+.active {
     background-color: gray;
 }
-/* chat */
-#chatWrapper{
+
+/* Wrapper della chat */
+#chatWrapper {
     width: 60%;
 }
-.toolbar{
+
+/* Barra degli strumenti della chat */
+.toolbar {
     height: 70px;
     background-color: #EAEAEA;
 }
-.chat{
+
+/* Area della chat */
+.chat {
     height: calc(100% - 140px);
     overflow-y: auto;
     padding: 20px;
     background-image: url(img/mine.jpg);
 }
+
+/* Messaggio */
 .msg {
     width: 300px;
     border-radius: 10px;
@@ -89,11 +118,15 @@ img {
     border: 1px solid gray;
     padding: 10px;
 }
-.sent{
+
+/* Messaggio inviato */
+.sent {
     background-color: #009688;
     margin-left: auto;
 }
-.received{
+
+/* Messaggio ricevuto */
+.received {
     background-color: white;
     margin-right: auto;
 }
