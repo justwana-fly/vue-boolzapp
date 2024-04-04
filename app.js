@@ -1,14 +1,28 @@
 // Importiamo l'array dei contatti dal file script.js
 import { contacts } from "./script.js";
 
-// Creiamo un'applicazione Vue
-const app = Vue.createApp({
-    // Definiamo la funzione data() per gestire i dati dell'applicazione
+const { createApp } = Vue;
+
+createApp({
     data() {
         return {
-            // Inseriamo l'array dei contatti all'interno dei dati dell'applicazione
-            contacts: contacts
-        };
-    }
-});
-app.mount('#app');
+            contacts: contacts,
+            activeContactId: 1
+        }
+    },
+    methods:{
+
+    },
+
+    computed:{
+        activeContact(){
+            return this.contacts.find((el)=> el.id === this.activeContactId);
+        }
+
+},
+    mounted(){
+    console.log(this.contacts);
+}
+ }).mount('#app');
+
+

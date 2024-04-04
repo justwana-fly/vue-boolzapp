@@ -4,100 +4,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="module" src="script.js" defer></script>
-    <script type="module" src="app.js" defer></script>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous" defer></script>
+    <script type="module" src="script.js" defer></script>
+    <script type="module" src="app.js" defer></script>
 
     <title>Document</title>
 </head>
 
+
 <body>
 
-    <div class="container">
-        <div class="left-section">
-            <!-- parte sinistra -->
-            <div class="your-avatar d-flex justify-content-between align-items-center p-1 ">
-                <div class="d-flex align-items-center">
-                    <img src="img/avatar_io.jpg" alt="">
-                    <p class="m-lg-2  m-0 ">Sofia</p>
+    <div id="app">
+        <div class="container h-100 bg-light p-0 d-flex ">
+            <div id="contactList" class="nb-debug">
+                <div class="toolbar d-flex justify-content-between align-items-center p-1">
+                    <div class="d-flex align-items-center">
+                        <img src="img/avatar_io.jpg" alt="" class="avatar img-fluid rounded-circle">
+                        <p class="m-lg-2  m-0 ">Sofia</p>
+                    </div>
+                    <div class="m-3">
+                        <a href="#"><i class="fa-solid fa-circle-notch m-1 " style="color: #B8BABC;"></i></a>
+                        <a href="#"><i class="fa-solid fa-message m-1 " style="color: #B8BABC;"></i></a>
+                        <a href="#"><i class="fa-solid fa-ellipsis-vertical m-1 " style="color: #B8BABC;"></i></a>
+                    </div>
+
                 </div>
+                <div class="notification  d-flex align-items-center p-3">
+                    <div class="notifiche-circle">
+                        <i class="aab fa-regular fa-bell-slash m-2" style="color: #74C0FC;"></i>
+                    </div>
+                    <div>
+                        <p class="m-0 ">Ricevi notifiche di nuovi messaggi</p>
+                        <a href="#">
+                            <p class="m-0 notifiche-testo">Attiva notifiche desktop</p>
+                        </a>
+                    </div>
 
-                <div class="m-3">
-                    <a href="#"><i class="fa-solid fa-circle-notch m-1 " style="color: #B8BABC;"></i></a>
-                    <a href="#"><i class="fa-solid fa-message m-1 " style="color: #B8BABC;"></i></a>
-                    <a href="#"><i class="fa-solid fa-ellipsis-vertical m-1 " style="color: #B8BABC;"></i></a>
                 </div>
-            </div>
-            <!-- notifiche -->
-            <div class="notifiche d-flex align-items-center p-3">
-                <div class="notifiche-circle">
-                    <i class="aab fa-regular fa-bell-slash m-2" style="color: #74C0FC;"></i>
+                <div class="searchbar d-flex mt-2">
+                    <button class="w-25 p-1 search-button" type="button">
+                        <i class="fa-solid fa-magnifying-glass m-1 " style="color: #B8BABC;"></i>
+                    </button>
+                    <input class="w-75 p-1 search-input" type="text" placeholder="Cerca o inizia una nuova chat">
+
                 </div>
-                <div>
-                    <p class="m-0 ">Ricevi notifiche di nuovi messaggi</p>
-                    <a href="#">
-                        <p class="m-0 notifiche-testo">Attiva notifiche desktop</p>
-                    </a>
-                </div>
-            </div>
-            <!-- input di ricerca utenti -->
-            <div class="search d-flex mt-2 ">
-                <button class="w-25 p-1 search-button" type="button">
-                    <i class="fa-solid fa-magnifying-glass m-1 " style="color: #B8BABC;"></i>
-                </button>
-                <input class="w-75 p-1 search-input" type="text" placeholder="Cerca o inizia una nuova chat">
-            </div>
+                <div class="contacts">
+                    <div class="contact d-flex align-content-start" :class="
+                    {'active': activeContactId === contact.id }" v-for="
+                    (contact, index) in contacts" :key="contact.id" @click="activeContactId = contact.id">
 
-            <!-- user a cui puoi scrivere -->
-            <div id="app">
-                <!-- Lista dei contatti -->
-                <ul>
-                    <!-- Utilizziamo v-for per iterare attraverso l'array dei contatti -->
-                    <li v-for="contact in contacts" :key="contact.name">
-                        <!-- Immagine avatar del contatto -->
-                        <img :src="contact.avatar" :alt="contact.name" width="50">
-                        <!-- Nome del contatto -->
-                        <span>{{ contact.name }}</span>
-                    </li>
-                </ul>
-            </div>
-
-
-
-        </div>
-
-        <!-- parte destra -->
-        <div class="right-section d-flex flex-column">
-            <!-- use con cui stai parlando -->
-            <div class="chat-avatar d-flex justify-content-between align-items-center p-1">
-                <img src="img/avatar_1.jpg" alt="">
-                <div class="m-3">
-                    <a href="#"><i class="fa-solid fa-magnifying-glass m-1 " style="color: #B8BABC;"></i></a>
-                    <a href="#"><i class="fa-solid fa-paperclip m-1 " style="color: #B8BABC;"></i></a>
-                    <a href="#"><i class="fa-solid fa-ellipsis-vertical m-1 " style="color: #B8BABC;"></i></a>
+                        <div class="avatar">
+                            <img :src="contact.avatar" :alt="contact.name" class="img-fluid rounded-circle">
+                        </div>
+                        
+                        <div>
+                            <h6>{{contact.name}}</h6>
+                            <p>ultimo messaggio</p>
+                        </div>
+                        <div class="time ms-auto">
+                            12.55
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- parte destra sotto input di messaggi -->
-            <div class="message d-flex align-items-end mt-auto p-2 align-items-center">
-                <a href="#"><i class="fa-regular fa-face-smile" style="color: #B8BABC;"></i></a>
+            <div id="chatWrapper" class="nb-debug">
+                <div class="toolbar"></div>
+                <div class="chat">
+                    <div class="d-flex p-3" v-for="(msg,index) in activeContact.messages">
+                       <div class="msg" :class="msg.status">{{msg.message}}</div>
+
+                    </div>
+                 
+                   
+                </div>
+                <div class="toolbar d-flex align-items-end mt-auto p-2 align-items-center">
+                    <a href="#"><i class="fa-regular fa-face-smile" style="color: #B8BABC;"></i></a>
 
                 <input class="w-75 mx-auto p-2 rounded border-0 " type="text" placeholder="Scrivi un messaggio">
                 <a href="#"><i class="fa-solid fa-microphone" style="color: gray;"></i></a>
 
+                </div>
             </div>
 
         </div>
-    </div>
     </div>
 
 </body>
