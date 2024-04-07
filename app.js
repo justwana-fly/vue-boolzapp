@@ -1,6 +1,8 @@
 // Importa l'array dei contatti dal file script.js
 import { contacts } from "./script.js";
 
+
+
 const { createApp } = Vue;
 
 // Inizializza l'applicazione Vue
@@ -9,18 +11,23 @@ createApp({
     data() {
         return {
             contacts: contacts, // Array dei contatti
-            activeContactId: 1 // ID del contatto attivo
+            activeContactId: 1, // ID del contatto attivo
+           
         }
     },
     // Metodi dell'applicazione
     methods: {
+        setActiveContact(id){
+            this.activeContactId = id;
+        }
 
     },
     // Proprietà calcolate
     computed: {
         // Restituisce il contatto attivo
         activeContact() {
-            return this.contacts.find((el) => el.id === this.activeContactId);
+            return this.contacts.find((el) => el.id === 
+            this.activeContactId);
         }
     },
     // Funzione eseguita dopo il montaggio dell'applicazione
