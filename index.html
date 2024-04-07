@@ -115,7 +115,8 @@
                 <!-- Barra degli strumenti della chat -->
                 <div class="toolbar d-flex align-items-end mt-auto p-2 align-items-center">
                     <a href="#"><i class="fa-regular fa-face-smile" style="color: #B8BABC;"></i></a>
-                    <input class="w-75 mx-auto p-2 rounded border-0 " type="text" placeholder="Scrivi un messaggio">
+                    <input class="w-75 mx-auto p-2 rounded border-0 " type="text"
+                     v-model=" messageText" @keyup.enter="sendMessage()">
                     <a href="#"><i class="fa-solid fa-microphone" style="color: gray;"></i></a>
                 </div>
             </div>

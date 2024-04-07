@@ -12,6 +12,7 @@ createApp({
         return {
             contacts: contacts, // Array dei contatti
             activeContactId: 1, // ID del contatto attivo
+            messageText: ''
            
         }
     },
@@ -19,6 +20,17 @@ createApp({
     methods: {
         setActiveContact(id){
             this.activeContactId = id;
+        },
+        //messaggi nel input 
+        sendMessage(){
+            const newMessage = {
+                date: new Date().toLocaleString(),
+                message: this.messageText,
+                status: 'sent'
+            }
+            this.activeContact.messages.push(newMessage);
+            this.messageText = ''
+
         }
 
     },
