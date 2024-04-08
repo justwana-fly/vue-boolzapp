@@ -12,7 +12,8 @@ createApp({
         return {
             contacts: contacts, // Array dei contatti
             activeContactId: 1, // ID del contatto attivo
-            messageText: ''
+            messageText: '', 
+            searchText: ''
            
         }
     },
@@ -28,11 +29,22 @@ createApp({
                 message: this.messageText,
                 status: 'sent'
             }
+            
             this.activeContact.messages.push(newMessage);
-            this.messageText = ''
+            this.messageText = '';
+            // funzione per la risposta ok del pc dopo 1 sec e la data
+            setTimeout(()=>{
+                const newMessage = {
+                    date: new Date().toLocaleString(),
+                    message: 'ok',
+                    status: 'received'
+                }
+                this.activeContact.messages.push(newMessage);
+            },1000);
+         
 
-        }
-
+        },
+        
     },
     // Proprietà calcolate
     computed: {
@@ -40,6 +52,11 @@ createApp({
         activeContact() {
             return this.contacts.find((el) => el.id === 
             this.activeContactId);
+        },
+        //filtro per trovare i nomi dei contatti
+        filteredContacts(){
+            return this.contacts.filter((el)=>
+             el.name.toLowerCase().includes(this.searchText.toLowerCase()));
         }
     },
     // Funzione eseguita dopo il montaggio dell'applicazione
